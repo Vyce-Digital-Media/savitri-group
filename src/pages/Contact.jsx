@@ -25,8 +25,10 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send email');
+        throw new Error(result.error || 'Failed to send email');
       }
 
       setStatus('success');
@@ -35,8 +37,8 @@ export default function Contact() {
     } catch (error) {
       console.error('Email sending error:', error);
       setStatus('error');
-      // For local testing, we'll still show success if it's just a CORS error but the developer knows it
-      // setStatus('success'); 
+      // Reset error status after 5 seconds to let user try again
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
@@ -167,6 +169,12 @@ export default function Contact() {
               {status === 'success' && (
                 <p className="text-emerald-600 text-sm font-medium text-center mt-2">
                   Thank you! We'll get back to you shortly.
+                </p>
+              )}
+
+              {status === 'error' && (
+                <p className="text-rose-600 text-sm font-medium text-center mt-2">
+                  Oops! Something went wrong. Please try again.
                 </p>
               )}
             </form>
