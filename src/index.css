@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #1D4ED8; /* Vibrant Blue (approx logo base) */
+  --color-brand-secondary: #8B5CF6; /* Violet/Purple (logo accent) */
+  --color-brand-cyan: #06B6D4; /* Cyan (logo tip) */
+  
+  --color-bg-primary: #F8FAFC; /* Slate 50 */
+  --color-bg-secondary: #FFFFFF; /* White */
+  
+  --color-text-primary: #0F172A; /* Navy / Slate 900 */
+  --color-text-secondary: #475569; /* Slate 600 */
+  
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  body {
+    @apply m-0 p-0 overflow-x-hidden pt-0;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-slate-200/50 shadow-sm transition-all;
+  }
+  .text-brand-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-brand-primary)] via-[var(--color-brand-secondary)] to-[var(--color-brand-cyan)];
+  }
+}
