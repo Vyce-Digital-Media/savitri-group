@@ -84,28 +84,32 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
           <span className="text-[20vw] font-heading font-bold whitespace-nowrap text-slate-900 select-none">SAVITRI GROUP</span>
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center flex flex-col items-center">
           <div className="flex justify-center mb-6 text-[#8B5CF6]">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
           </div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">
             See the Fabric in Motion.
           </h2>
-          {/* Instagram Fragment (Post Embed) */}
-          <div className="relative w-full max-w-md mx-auto mb-8 px-4">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-[#8B5CF6]/15 to-[#1D4ED8]/15 blur-3xl opacity-50 -z-10 rounded-full" />
-            <div className="bg-white p-1 rounded-2xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.08)] border border-slate-100 overflow-hidden">
-              <iframe
-                src="https://www.instagram.com/p/DKud28KJre0/embed"
-                width="100%"
-                height="420"
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency="true"
-                allow="encrypted-media"
-                className="w-full rounded-xl"
-              ></iframe>
-            </div>
+          {/* Instagram Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-7xl mx-auto mb-12 px-4">
+            {['DKud28KJre0', 'DGa51zNTwwG', 'DGRlsHCTIpr', 'C31W6Wui436'].map((id) => (
+              <div key={id} className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-[#8B5CF6]/15 to-[#1D4ED8]/15 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10 rounded-full" />
+                <div className="bg-white p-1 rounded-2xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.08)] border border-slate-100 overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_rgba(8,_112,_184,_0.12)]">
+                  <iframe
+                    src={`https://www.instagram.com/p/${id}/embed`}
+                    width="100%"
+                    height="480"
+                    frameBorder="0"
+                    scrolling="no"
+                    allowTransparency="true"
+                    allow="encrypted-media"
+                    className="w-full rounded-xl"
+                  ></iframe>
+                </div>
+              </div>
+            ))}
           </div>
           <p className="text-slate-600 text-base md:text-lg mb-8 max-w-xl mx-auto font-light">
             Explore our latest threads, behind-the-scenes manufacturing, and premium textiles on our Instagram profile.
