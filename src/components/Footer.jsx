@@ -62,7 +62,6 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-slate-500 text-xs">&copy; {new Date().getFullYear()} Savitri Group. All rights reserved.</p>
-        <p className="text-slate-500 text-xs tracking-wider">DEVELOPED BY KUSH MODY</p>
       </div>
     </footer>
   );
